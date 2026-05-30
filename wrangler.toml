@@ -1,0 +1,10 @@
+#:schema node_modules/wrangler/config-schema.json
+# Cloudflare Workers — serve a landing estática (Next.js `output: export`)
+name = "outsidejoab"
+compatibility_date = "2025-05-30"
+
+# Pasta gerada por `npm run build` (Next.js static export).
+[assets]
+directory = "./out"
+# Site de página única: qualquer rota desconhecida cai no index.
+not_found_handling = "single-page-application"
