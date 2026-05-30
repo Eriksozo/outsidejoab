@@ -20,7 +20,7 @@ export default function ParticleField() {
     const dpr = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.25 : 1.75);
 
     let W = 0, H = 0, parts = [], lights = [];
-    const COUNT = REDUCED ? 0 : IS_MOBILE ? 18 : 46;
+    const COUNT = REDUCED ? 0 : IS_MOBILE ? 14 : 46;
     const LIGHTS = REDUCED ? 1 : IS_MOBILE ? 2 : 4;
 
     const sprite = document.createElement("canvas");

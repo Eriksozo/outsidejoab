@@ -105,3 +105,44 @@ body { position: relative; z-index: 0; }
   .fx-orb { filter: blur(48px); opacity: 0.4; }
   .hero-media { animation: none; } /* avoid layout jitter on small screens */
 }
+
+/* =============================================================================
+   MOBILE POLISH — touch ergonomics, layout density, perf on small screens
+   ============================================================================= */
+@media (max-width: 760px) {
+  /* Tap ergonomics: kill 300ms delay + grey flash, guarantee hit targets */
+  .btn { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  .btn--primary { min-height: 48px; }
+
+  /* Full-width CTAs in flow (NOT the sticky bar) for easy thumb taps */
+  .hero-cta-wrap .btn--cta,
+  .cta-row .btn--cta,
+  .text-center > .btn--cta { width: 100%; max-width: 360px; }
+
+  /* Hero & section rhythm a touch tighter */
+  .hero { padding-top: clamp(var(--space-8), 12vw, var(--space-10)); }
+  .hero-grid { gap: var(--space-6); }
+  .section { padding-block: clamp(var(--space-8), 11vw, var(--space-10)); }
+
+  /* Social strip: clean wrap, drop the dividers, smaller numbers */
+  .social-strip-inner { gap: var(--space-4) var(--space-5); }
+  .stat-divider { display: none; }
+  .stat-value { font-size: var(--text-xl); }
+  .stat-item { flex: 1 1 40%; }
+
+  /* Value stack: let long labels breathe, keep price readable */
+  .value-stack li { gap: var(--space-2); font-size: var(--text-sm); }
+  .value-stack li .vs-value { font-size: var(--text-base); }
+
+  /* Sticky bar: compact, never overflow */
+  .sticky-bar { gap: var(--space-2); padding: var(--space-2) var(--space-3); }
+  .sticky-bar-text strong { font-size: var(--text-sm); }
+  .sticky-bar .btn--cta { padding: var(--space-3) var(--space-4); font-size: var(--text-sm); min-height: 44px; white-space: nowrap; }
+}
+
+@media (max-width: 420px) {
+  /* On tiny screens keep only the product name + button in the sticky bar */
+  .sticky-bar-text span { display: none; }
+  .hero-title { font-size: clamp(1.9rem, 9.5vw, 2.6rem) !important; }
+  .offer-urgency { font-size: var(--text-xs); letter-spacing: 0.04em; }
+}

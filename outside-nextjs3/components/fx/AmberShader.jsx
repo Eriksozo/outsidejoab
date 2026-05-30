@@ -14,7 +14,7 @@ export default function AmberShader() {
     if (!canvas) return;
     const REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const IS_MOBILE = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
-    const DPR_CAP = IS_MOBILE ? 1.5 : 2;
+    const DPR_CAP = IS_MOBILE ? 1.25 : 2;
 
     const gl = canvas.getContext("webgl", { antialias: false, alpha: true, premultipliedAlpha: false });
     if (!gl) { canvas.style.display = "none"; return; }
